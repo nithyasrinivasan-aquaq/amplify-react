@@ -19,9 +19,9 @@ function App() {
         TableName: 'FIX-messages-test'
       }
     };
-    
+
    axios.get(api, config).then(res => {
-    console.log(res.data);
+    console.log(res);
     setResponse(res.data)
   });
   }
