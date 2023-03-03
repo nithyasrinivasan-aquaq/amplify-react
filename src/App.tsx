@@ -9,8 +9,18 @@ function App() {
   const [response, setResponse] = useState();
 
   const callApi = () => {
-    const api = 'https://11nfsd5x34.execute-api.us-east-2.amazonaws.com/messages'
-   axios.get(api, { params: { TableName: 'FIX-messages-test' } }).then(res => {
+    const api = 'https://11nfsd5x34.execute-api.us-east-2.amazonaws.com/messages';
+    const config = {
+      headers:{
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*"
+      },
+      params: {
+        TableName: 'FIX-messages-test'
+      }
+    };
+    
+   axios.get(api, config).then(res => {
     console.log(res.data);
     setResponse(res.data)
   });
